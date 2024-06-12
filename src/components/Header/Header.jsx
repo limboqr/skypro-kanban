@@ -1,8 +1,34 @@
+import { useState } from "react"
 import PopUser from "../Popups/PopUser/PopUser"
-import Button from "../Shared/Button/Button"
 
 
-function Header() {
+function Header({ setTasks }) {
+   const [isPopUserOpened, setIsPopUserOpened] = useState(false)
+
+   function handleAddTask(event) {
+      event.preventDefault()
+
+      const date = new Date()
+
+      setTasks((prev) => [
+         ...prev,
+         {
+            id: date.getTime(),
+            topic: "Research",
+            title: "Новая задача",
+            description: "Что-то",
+            date: date.toDateString(),
+            status: "Без статуса",
+         },
+      ])
+   }
+
+   function handleOpenPopUser(event) {
+      event.preventDefault()
+
+      setIsPopUserOpened((prev) => !prev)
+   }
+
    return (
       <header className="header">
          <div className="container">
@@ -18,11 +44,12 @@ function Header() {
                   </a>
                </div>
                <nav className="header__nav">
-                  <Button isDefault={true} id="btnMainNew">
-                     <a href="#popNewCard">Создать новую задачу</a>
-                  </Button>
-                  <a href="#user-set-target" className="header__user _hover02">Ivan Ivanov</a>
-                  <PopUser />
+                  <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={handleAddTask}>
+                     {/* <a href="#popNewCard">Создать новую задачу</a> */}
+                     Создать новую задачу
+                  </button>
+                  <a onClick={handleOpenPopUser} href="#" className="header__user _hover02">Ivan Ivanov</a>
+                  {isPopUserOpened && <PopUser />}
                </nav>
             </div>
          </div>
