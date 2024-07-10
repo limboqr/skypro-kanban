@@ -19,6 +19,7 @@ function Calendar() {
                   </div>
                </div>
             </div>
+
             <div className="calendar__content">
                <div className="calendar__days-names">
                   <div className="calendar__day-name">пн</div>

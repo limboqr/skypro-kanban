@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle } from './components/Shared/Global.styled'
 import './App.css'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
@@ -6,6 +8,8 @@ import PopBrowse from './components/Popups/PopBrowse/PopBrowse'
 import PopExit from './components/Popups/PopExit/PopExit'
 import PopNewCard from './components/Popups/PopNewCard/PopNewCard'
 import Tasks from './data/tasks'
+import { lightTheme } from './components/Shared/Themes'
+import * as Common from './components/Shared/Common.styled'
 
 
 function App() {
@@ -17,25 +21,21 @@ function App() {
   }, [])
 
   return (
-    <div className="wrapper">
-
-      {/* {pop-up start} */}
+    <ThemeProvider theme={lightTheme}>
+      <GlobalStyle />
       <PopExit />
-
       <PopNewCard />
-
       <PopBrowse />
-      {/* {pop-up end} */}
 
-      <Header setTasks={setTasks} />
-
-      {
-        isLoading
-          ? <div className="loading">Данные загружаются...</div>
-          : <Main tasks={tasks} />
-      }
-
-    </div>
+      <Common.Wrapper>
+        <Header setTasks={setTasks} />
+        {
+          isLoading
+            ? <Common.Loading>Данные загружаются...</Common.Loading>
+            : <Main tasks={tasks} />
+        }
+      </Common.Wrapper>
+    </ThemeProvider>
   )
 }
 

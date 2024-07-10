@@ -1,33 +1,40 @@
 import Calendar from "../Graphics/Calendar"
+import * as S from "./Card.styled"
 
 
 function Card({ topic, title, date }) {
    return (
-      <div className="cards__item">
-         <div className="cards__card card">
-            <div className="card__group">
-               <div className="card__theme _orange">
-                  <p className="_orange">{topic}</p>
-               </div>
+      <S.CardsItem>
+         <S.Card>
+            <S.CardGroup>
+               <S.CardTopic $topic={topic}>
+                  <S.TopicText>
+                     {topic}
+                  </S.TopicText>
+               </S.CardTopic>
                <a href="#popBrowse" target="_self">
-                  <div className="card__btn">
-                     <div></div>
-                     <div></div>
-                     <div></div>
-                  </div>
+                  <S.CardBtn>
+                     <S.CardBtnDiv></S.CardBtnDiv>
+                     <S.CardBtnDiv></S.CardBtnDiv>
+                     <S.CardBtnDiv></S.CardBtnDiv>
+                  </S.CardBtn>
                </a>
-            </div>
-            <div className="card__content">
-               <a href="" target="_blank">
-                  <h3 className="card__title">{title}</h3>
+            </S.CardGroup>
+            <S.CardContent>
+               <a href="#" target="_blank">
+                  <S.CardTitle>
+                     {title}
+                  </S.CardTitle>
                </a>
-               <div className="card__date">
+               <S.CardDate>
                   <Calendar />
-                  <p>{date}</p>
-               </div>
-            </div>
-         </div>
-      </div>
+                  <S.CardDateP>
+                     {date}
+                  </S.CardDateP>
+               </S.CardDate>
+            </S.CardContent>
+         </S.Card>
+      </S.CardsItem>
    )
 }
 
