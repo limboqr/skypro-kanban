@@ -1,13 +1,15 @@
+import * as S from "./Main.styled"
+import * as Common from "../Shared/Common.styled"
 import Statuses from "../../data/statuses"
 import Column from "../Column/Column"
 
 
 function Main({ tasks }) {
    return (
-      <main className="main">
-         <div className="container">
-            <div className="main__block">
-               <div className="main__content">
+      <S.Main>
+         <Common.Container>
+            <S.MainBlock>
+               <S.MainContent>
                   {Statuses.map((status, index) => {
                      const filteredTasks = tasks.filter((task) => task.status === status)
 
@@ -18,10 +20,10 @@ function Main({ tasks }) {
                   <Column title={"В работе"} />
                   <Column title={"Тестирование"} />
                   <Column title={"Готово"} /> */}
-               </div>
-            </div>
-         </div>
-      </main>
+               </S.MainContent>
+            </S.MainBlock>
+         </Common.Container>
+      </S.Main>
    )
 }
 

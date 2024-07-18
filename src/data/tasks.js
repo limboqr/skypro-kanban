@@ -17,7 +17,7 @@ const Tasks = [
    },
    {
       id: 3,
-      topic: "Web Design",
+      topic: "Research",
       title: "Новая задача",
       description: "Что-то",
       date: "30.10.23",
@@ -25,7 +25,7 @@ const Tasks = [
    },
    {
       id: 4,
-      topic: "Web Design",
+      topic: "Copywriting",
       title: "Новая задача",
       description: "Что-то",
       date: "30.10.23",

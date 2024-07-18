@@ -1,26 +1,29 @@
 import Button from "../../Shared/Button/Button"
+import * as S from "./PopExit.styled"
 
 function PopExit() {
    return (
-      <div className="pop-exit" id="popExit">
-         <div className="pop-exit__container">
-            <div className="pop-exit__block">
-               <div className="pop-exit__ttl">
-                  <h2>Выйти из аккаунта?</h2>
-               </div>
+      <S.PopExit id="popExit">
+         <S.PopExitContainer>
+            <S.PopExitBlock>
+               <S.PopExitTitle>
+                  <h2>
+                     Выйти из аккаунта?
+                  </h2>
+               </S.PopExitTitle>
                <form className="pop-exit__form" id="formExit" action="#">
-                  <div className="pop-exit__form-group">
+                  <S.PopExitFormGroup>
                      <Button isDefault={true} id="exitYes">
                         <a href="modal/signin.html">Да, выйти</a>
                      </Button>
                      <Button isDefault={false} id="exitNo">
                         <a href="main.html">Нет, остаться</a>
                      </Button>
-                  </div>
+                  </S.PopExitFormGroup>
                </form>
-            </div>
-         </div>
-      </div>
+            </S.PopExitBlock>
+         </S.PopExitContainer>
+      </S.PopExit>
    )
 }
 

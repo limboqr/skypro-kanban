@@ -1,5 +1,8 @@
 import { useState } from "react"
 import PopUser from "../Popups/PopUser/PopUser"
+import * as S from "./Header.styled"
+import * as Common from "../Shared/Common.styled"
+
 
 
 function Header({ setTasks }) {
@@ -30,30 +33,32 @@ function Header({ setTasks }) {
    }
 
    return (
-      <header className="header">
-         <div className="container">
-            <div className="header__block">
+      <S.Header>
+         <Common.Container>
+            <S.HeaderBlock>
                <div className="header__logo _show _light">
                   <a href="" target="_self">
                      <img src="images/logo.png" alt="logo" />
                   </a>
                </div>
-               <div className="header__logo _dark">
+               {/* <div className="header__logo _dark">
                   <a href="" target="_self">
                      <img src="images/logo_dark.png" alt="logo" />
                   </a>
-               </div>
-               <nav className="header__nav">
-                  <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={handleAddTask}>
+               </div> */}
+               <S.HeaderNav>
+                  <S.HeaderButton onClick={handleAddTask} id="btnMainNew">
                      {/* <a href="#popNewCard">Создать новую задачу</a> */}
                      Создать новую задачу
-                  </button>
-                  <a onClick={handleOpenPopUser} href="#" className="header__user _hover02">Ivan Ivanov</a>
+                  </S.HeaderButton>
+                  <a onClick={handleOpenPopUser} href="#" className="header__user _hover02">
+                     Ivan Ivanov
+                  </a>
                   {isPopUserOpened && <PopUser />}
-               </nav>
-            </div>
-         </div>
-      </header>
+               </S.HeaderNav>
+            </S.HeaderBlock>
+         </Common.Container>
+      </S.Header>
    )
 }
 
